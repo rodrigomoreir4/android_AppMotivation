@@ -8,8 +8,10 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linear_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/purple"
         android:padding="12dp">
 
         <ImageView
@@ -33,17 +35,34 @@
     </LinearLayout>
 
     <TextView
+        android:text="Olá, Kotlin!"
+        android:fontFamily="@font/cabin"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_menu"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
         android:id="@+id/text_text"
+        android:fontFamily="@font/cabin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:padding="16dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:gravity="center"
-        android:text="text"/>
+        android:text="@string/app_name"/>
     
     <View
         android:layout_width="128dp"
-        android:layout_height="5dp"
+        android:layout_height="3dp"
+        android:elevation="5dp"
+        android:backgroundTint="@color/dark_purple"
         android:background="@color/black"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/text_text"/>
@@ -51,9 +70,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nova frase"
-        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/cabin"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="32dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/dark_purple"
+        android:text="@string/new_phrase" />
 
 </RelativeLayout>
