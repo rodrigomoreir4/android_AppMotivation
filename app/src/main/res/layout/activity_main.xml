@@ -35,6 +35,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/text_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/linear_menu"
@@ -43,7 +44,7 @@
         android:fontFamily="@font/cabin"
         android:text="Olá, Kotlin!"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/text_text"

@@ -19,13 +19,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         supportActionBar?.hide()
-
+        handleUserName()
+        // evento de click
         binding.buttonNewPhrase.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        if (v.id == R.id.button_new_phrase){
+        if (v.id == R.id.button_new_phrase) {
             var s = ""
         }
+    }
+
+    private fun handleUserName() {
+        val name = SecurityPreferences(this).getKey("USER_NAME")
+        val greeting = getString(R.string.greeting)
+        binding.textUserName.text = "$greeting, $name!"
     }
 }
