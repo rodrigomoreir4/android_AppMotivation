@@ -6,13 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.devrodrigomoreira.motivation.infra.MotivationConstants
 import com.devrodrigomoreira.motivation.R
+import com.devrodrigomoreira.motivation.data.Mock
 import com.devrodrigomoreira.motivation.infra.SecurityPreferences
 import com.devrodrigomoreira.motivation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
-    private var categoryId = 1
+    private var categoryId = MotivationConstants.FILTER.ALL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.hide()
         handleUserName()
         handleFilter(R.id.image_all)
+        handleNextPhrase()
 
         // Eventos
         binding.buttonNewPhrase.setOnClickListener(this)
@@ -33,12 +35,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_new_phrase) {
-            var s = ""
+            handleNextPhrase()
         } else if (v.id in listOf(R.id.image_all, R.id.image_happy, R.id.image_sunny)){
             handleFilter(v.id)
         }
     }
 
+    private fun handleNextPhrase(){
+        val phrase = Mock().getPhrase(categoryId)
+        binding.textText.text = phrase
+    }
     private fun handleFilter(id: Int){
 
         binding.imageAll.setColorFilter(ContextCompat.getColor(this, R.color.dark_purple))

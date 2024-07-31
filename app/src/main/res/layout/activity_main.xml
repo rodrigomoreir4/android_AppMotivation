@@ -80,6 +80,7 @@
         android:layout_marginBottom="32dp"
         android:backgroundTint="@color/dark_purple"
         android:fontFamily="@font/cabin"
-        android:text="@string/new_phrase" />
+        android:text="@string/new_phrase"
+        android:textAllCaps="true" />
 
 </RelativeLayout>
