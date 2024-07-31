@@ -1,11 +1,11 @@
-package com.devrodrigomoreira.motivation
+package com.devrodrigomoreira.motivation.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.devrodrigomoreira.motivation.infra.MotivationConstants
+import com.devrodrigomoreira.motivation.R
+import com.devrodrigomoreira.motivation.infra.SecurityPreferences
 import com.devrodrigomoreira.motivation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleUserName() {
-        val name = SecurityPreferences(this).getKey("USER_NAME")
+        val name = SecurityPreferences(this).getKey(MotivationConstants.KEY.USER_NAME)
         val greeting = getString(R.string.greeting)
         binding.textUserName.text = "$greeting, $name!"
     }

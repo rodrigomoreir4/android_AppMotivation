@@ -1,4 +1,4 @@
-package com.devrodrigomoreira.motivation
+package com.devrodrigomoreira.motivation.infra
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 class SecurityPreferences(context: Context) {
 
     private val security: SharedPreferences =
-        context.getSharedPreferences("Motivantion", Context.MODE_PRIVATE)
+        context.getSharedPreferences("Motivation", Context.MODE_PRIVATE)
 
     fun storeString(key: String, str: String) {
         security.edit().putString(key, str).apply()

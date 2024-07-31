@@ -1,13 +1,13 @@
-package com.devrodrigomoreira.motivation
+package com.devrodrigomoreira.motivation.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.devrodrigomoreira.motivation.infra.MotivationConstants
+import com.devrodrigomoreira.motivation.R
+import com.devrodrigomoreira.motivation.infra.SecurityPreferences
 import com.devrodrigomoreira.motivation.databinding.ActivityUserBinding
 
 class UserActivity : AppCompatActivity(), View.OnClickListener {
@@ -34,7 +34,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
         val name = binding.editName.text.toString()
         if (name != "") {
 
-            SecurityPreferences(this).storeString("USER_NAME", name)
+            SecurityPreferences(this).storeString(MotivationConstants.KEY.USER_NAME, name)
 
             startActivity(Intent(this, MainActivity::class.java))
             finish()
