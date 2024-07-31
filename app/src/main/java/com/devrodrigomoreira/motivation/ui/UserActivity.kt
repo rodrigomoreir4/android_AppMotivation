@@ -22,11 +22,21 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.buttonSave.setOnClickListener(this)
 
+        verifyUserName()
+
     }
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_save) {
             handleSave()
+        }
+    }
+
+    private fun verifyUserName(){
+        val name = SecurityPreferences(this).getKey(MotivationConstants.KEY.USER_NAME)
+        if (name != ""){
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
